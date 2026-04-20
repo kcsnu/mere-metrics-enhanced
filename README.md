@@ -1,14 +1,16 @@
 # Mere Metrics: Weight Tracker (Enhanced)
 
-This repository contains the enhanced version of Mere Metrics: Weight Tracker, a Java Android app for tracking daily weight entries against a goal. Compared with the original version, it refactors the app structure, adds analytics and insights, and replaces the helper-based database layer with Room. The original version is available at [mere-metrics-original](https://github.com/kcsnu/mere-metrics-original), and the full portfolio is at [kcsnu.github.io](https://kcsnu.github.io/).
+This repository contains the enhanced version of *Mere Metrics: Weight Tracker*, a Java Android app for tracking daily weight entries against a goal. Compared to the original, it refactors the app structure, adds analytics and insights, and replaces the helper-based database layer with Room. The original version is at [mere-metrics-original](https://github.com/kcsnu/mere-metrics-original), and the full portfolio is at [kcsnu.github.io](https://kcsnu.github.io/).
 
 ## Enhancements in this version
 
-Three categories of improvement over the original:
+There are three main areas I focused on:
 
-1. **Software design and engineering** — refactored from a fragment-centered design into layered packages (`ui`, `service`, `data`, `model`, `util`). The history view is now rendered with RecyclerView rather than a manually generated table.
-2. **Algorithms and data structures** — added an analytics engine with ISO date normalization, range filtering, rolling averages, weekly and monthly change calculations, percent progress toward the goal, and a projected goal-reach date.
-3. **Databases** — migrated persistence from `SQLiteOpenHelper` to Room, with Room entities, DAOs, versioned schema migrations, foreign keys, unique constraints, and indexed queries. Existing user data is preserved across upgrades rather than being dropped and recreated.
+1. **Software design and engineering.** I refactored the app from a fragment-heavy setup into cleaner layers like `ui`, `service`, `data`, `model`, and `util`. I also replaced the old manually built history table with a RecyclerView.
+
+2. **Algorithms and data structures.** I added an analytics engine with ISO date normalization, range filtering, rolling averages, weekly and monthly change calculations, percent progress toward the goal, and a projected goal-reach date.
+
+3. **Databases.** I migrated persistence from `SQLiteOpenHelper` to Room, with Room entities, DAOs, versioned schema migrations, foreign keys, unique constraints, and indexed queries. Existing user data is kept instead of being wiped on updates.
 
 ## Requirements
 
@@ -26,7 +28,7 @@ Three categories of improvement over the original:
    ```
 
 2. Open the project folder in Android Studio.
-3. Let Gradle sync finish. The project uses Gradle 9.1.0, which is downloaded automatically via the wrapper.
+3. Let Gradle finish syncing. The project uses Gradle 9.1.0, which is downloaded automatically via the wrapper.
 4. Select an emulator or connected device from the device picker.
 5. Press Run.
 
@@ -38,7 +40,7 @@ Three categories of improvement over the original:
 - Weight history rendered via RecyclerView with per-entry edit and delete actions
 - Insights screen with date-range filtering, rolling averages, trend calculations, goal progress, and a projected goal-reach date
 - Optional SMS notification when the goal is reached (requires SMS runtime permission)
-- Room-based persistence with explicit migrations that preserve existing data
+- Room-based persistence with explicit migrations that keep existing data
 
 ## Running the tests
 
@@ -47,7 +49,7 @@ The project includes both unit tests and instrumentation tests.
 - **Unit tests** (no device required): `./gradlew test`
 - **Instrumentation tests** (emulator or device required): `./gradlew connectedAndroidTest`
 
-Unit tests include analytics logic, goal-reach detection, date handling, and service-layer behavior. Instrumentation tests include Room database behavior and schema migration checks.
+The unit tests cover analytics logic, goal checks, date handling, and service behavior. The instrumentation tests cover the Room database and migration checks.
 
 ## Project structure
 
@@ -66,9 +68,9 @@ app/src/main/java/com/example/cs360_charlton_molloy_keir/
 
 ## Notes
 
-- SMS permission is requested at runtime. Granting it enables the notification feature. Denying it leaves the rest of the app fully functional.
-- Room schemas are exported to `app/schemas/` during build for version control and migration verification.
-- Schema migrations from earlier database versions are handled explicitly, so existing user data is preserved on upgrade rather than dropped and recreated.
+- SMS permission is requested at runtime. If you allow it, notifications work. If not, the rest of the app still works fine.
+- Room schemas are exported to `app/schemas/` during build for version control and checking migrations.
+- Schema migrations from earlier database versions are handled explicitly, so user data is kept during upgrades instead of being reset.
 
 ## Related
 
