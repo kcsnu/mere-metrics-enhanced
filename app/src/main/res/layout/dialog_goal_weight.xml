@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="8dp">
+
+    <EditText
+        android:id="@+id/edit_dialog_goal_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="0123456789."
+        android:hint="@string/hint_goal_weight"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:maxLength="7"
+        android:maxLines="1"
+        android:minHeight="48dp" />
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="8dp">
+
+    <!-- Entry date field -->
+    <EditText
+        android:id="@+id/edit_dialog_entry_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="0123456789/"
+        android:hint="@string/hint_entry_date"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:minHeight="48dp" />
+
+    <!-- Entry weight field -->
+    <EditText
+        android:id="@+id/edit_dialog_entry_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:digits="0123456789."
+        android:hint="@string/hint_entry_weight"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:maxLength="7"
+        android:maxLines="1"
+        android:minHeight="48dp" />
+
+</LinearLayout>

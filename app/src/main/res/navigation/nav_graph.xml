@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login_fragment">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.cs360_charlton_molloy_keir.ui.LoginFragment"
+        android:label="@string/login_title"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_login_fragment_to_weight_tracker_fragment"
+            app:destination="@id/weight_tracker_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weight_tracker_fragment"
+        android:name="com.example.cs360_charlton_molloy_keir.ui.WeightTrackerFragment"
+        android:label="@string/history_title"
+        tools:layout="@layout/fragment_weight_tracker">
+
+        <action
+            android:id="@+id/action_weight_tracker_fragment_to_sms_settings_fragment"
+            app:destination="@id/sms_settings_fragment" />
+
+        <action
+            android:id="@+id/action_weight_tracker_fragment_to_weight_insights_fragment"
+            app:destination="@id/weight_insights_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weight_insights_fragment"
+        android:name="com.example.cs360_charlton_molloy_keir.ui.WeightInsightsFragment"
+        android:label="@string/insights_title"
+        tools:layout="@layout/fragment_weight_insights" />
+
+    <fragment
+        android:id="@+id/sms_settings_fragment"
+        android:name="com.example.cs360_charlton_molloy_keir.ui.SmsSettingsFragment"
+        android:label="@string/sms_title"
+        tools:layout="@layout/fragment_sms_settings" />
+</navigation>
